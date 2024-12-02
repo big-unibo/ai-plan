@@ -1,0 +1,14 @@
+{
+    "prototype": {
+        "choice": [
+            "regression"
+        ]
+    },
+    "regression": {
+        "choice": [
+            {
+                "type": "PersistentSystem"
+            }
+        ]
+    }
+}

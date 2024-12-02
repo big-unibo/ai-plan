@@ -1,0 +1,59 @@
+{
+    "prototype": {
+        "choice": [
+            "regression"
+        ]
+    },
+    "regression": {
+        "choice": [
+            {
+                "type": "RandomForestRegressor",
+                "n_estimators": {
+                    "choice": [
+                        10,
+                        30,
+                        50,
+                        70,
+                        100
+                    ]
+                },
+                "criterion": {
+                    "choice": [
+                        "squared_error",
+                        "absolute_error"
+                    ]
+                },
+                "max_features": {
+                    "choice": [
+                        "auto",
+                        "sqrt",
+                        "log2"
+                    ]
+                },
+                "bootstrap": {
+                    "choice": [
+                        true,
+                        false
+                    ]
+                },
+                "oob_score": {
+                    "choice": [
+                        true,
+                        false
+                    ]
+                },
+                "n_jobs": {
+                    "choice": [
+                        -1
+                    ]
+                },
+                "warm_start": {
+                    "choice": [
+                        true,
+                        false
+                    ]
+                }
+            }
+        ]
+    }
+}

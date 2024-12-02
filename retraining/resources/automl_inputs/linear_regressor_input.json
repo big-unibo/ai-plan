@@ -1,0 +1,29 @@
+{
+    "prototype": {
+        "choice": [
+            "regression"
+        ]
+    },
+    "regression": {
+        "choice": [
+            {
+                "type": "LinearRegression",
+                "fit_intercept": {
+                    "choice": [
+                        -1
+                    ]
+                },
+                "n_jobs": {
+                    "choice": [
+                        -1
+                    ]
+                },
+                "positive": {
+                    "choice": [
+                        -1
+                    ]
+                }
+            }
+        ]
+    }
+}

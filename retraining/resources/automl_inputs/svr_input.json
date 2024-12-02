@@ -1,0 +1,58 @@
+{
+    "prototype": {
+        "choice": [
+            "normalization_regression"
+        ]
+    },
+    "normalization": {
+        "choice": [
+            {
+                "type": "StandardScaler"
+            }
+        ]
+    },
+    "regression": {
+        "choice": [
+            {
+                "meta_estimator": "TransformedTargetRegressor",
+                "super_type": "MultiOutputRegressor",
+                "type": "SVR",
+                "kernel": {
+                    "choice": [
+                        -1
+                    ]
+                },
+                "degree": {
+                    "choice": [
+                        -1
+                    ]
+                },
+                "gamma": {
+                    "choice": [
+                        -1
+                    ]
+                },
+                "tol": {
+                    "choice": [
+                        -1
+                    ]
+                },
+                "C": {
+                    "choice": [
+                        -1
+                    ]
+                },
+                "epsilon": {
+                    "choice": [
+                        -1
+                    ]
+                },
+                "shrinking": {
+                    "choice": [
+                        -1
+                    ]
+                }
+            }
+        ]
+    }
+}

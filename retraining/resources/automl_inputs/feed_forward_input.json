@@ -1,0 +1,66 @@
+{
+    "prototype": {
+        "choice": [
+            "normalization_regression"
+        ]
+    },
+    "normalization": {
+        "choice": [
+            {
+                "type": "StandardScaler"
+            }
+        ]
+    },
+    "regression": {
+        "choice": [
+            {
+                "type": "FeedForward",
+                "num_epochs": {
+                    "choice": [
+                        -1
+                    ]
+                },
+                "batch_size": {
+                    "choice": [
+                        -1
+                    ]
+                },
+                "num_hidden_layers": {
+                    "choice": [
+                        -1
+                    ]
+                },
+                "num_neurons": {
+                    "choice": [
+                        -1
+                    ]
+                },
+                "encoder": {
+                    "choice": [
+                        -1
+                    ]
+                },
+                "dropout": {
+                    "choice": [
+                        -1
+                    ]
+                },
+                "activation_function": {
+                    "choice": [
+                        -1
+                    ]
+                },
+                "last_activation_function": {
+                    "choice": [
+                        -1
+                    ]
+                },
+                "optimizer": {
+                    "choice": [
+                        -1
+                    ]
+                }
+            }
+        ]
+    }
+}

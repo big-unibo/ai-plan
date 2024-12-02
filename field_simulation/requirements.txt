@@ -1,0 +1,10 @@
+numpy
+pandas
+psycopg2
+flaml[blendsearch]
+openml
+matplotlib
+Cython
+vpython
+psutil
+tzwhere

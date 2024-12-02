@@ -1,0 +1,72 @@
+{
+    "prototype": {
+        "choice": [
+            "normalization_regression"
+        ]
+    },
+    "normalization": {
+        "choice": [
+            {
+                "type": "StandardScaler"
+            }
+        ]
+    },
+    "regression": {
+        "choice": [
+            {
+                "meta_estimator": "TransformedTargetRegressor",
+                "super_type": "MultiOutputRegressor",
+                "type": "SVR",
+                "kernel": {
+                    "choice": [
+                        "linear",
+                        "poly",
+                        "rbf",
+                        "sigmoid"
+                    ]
+                },
+                "degree": {
+                    "choice": [
+                        2,
+                        3,
+                        4,
+                        5
+                    ]
+                },
+                "gamma": {
+                    "choice": [
+                        "scale",
+                        "auto"
+                    ]
+                },
+                "tol": {
+                    "loguniform": [
+                        1e-4,
+                        1e-2
+                    ]
+                },
+                "C": {
+                    "choice": [
+                        0.001,
+                        0.01,
+                        0.1,
+                        1,
+                        5
+                    ]
+                },
+                "epsilon": {
+                    "loguniform": [
+                        0.001,
+                        1.0
+                    ]
+                },
+                "shrinking": {
+                    "choice": [
+                        true,
+                        false
+                    ]
+                }
+            }
+        ]
+    }
+}

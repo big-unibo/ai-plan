@@ -1,0 +1,25 @@
+field_names:
+  train_field_name: Synthetic field v.1.0
+  val_field_name: Synthetic field v.1.0
+  test_field_name: Synthetic field v.1.0
+scenario_names:
+  train_scenario_name: Synthetic Martorano v.1.0
+  val_scenario_name: Synthetic Bologna v.1.0
+  test_scenario_name: Real Fondo PROGETTO_1 2020
+arrangement: Fondo PROGETTO
+run_version: v.1.0
+window_parameters:
+  n_hours_ahead: 6
+  n_hours_past: 6
+  stride_ahead: 6
+  stride_past: 6
+tuning_parameters:
+  value_type_name: GROUND_WATER_POTENTIAL # GROUND_SATURATION_DEGREE
+  algorithm_name: LinearRegression v.1.0 HA 6 HP 6 SA 6 SP 6 Synthetic vs Synthetic
+  kind: LinearRegression
+  metric: RMSE # LogRMSE
+  case_study: Synthetic vs Synthetic
+  description: "First attempt of LinearRegression with all sensors - Train field: Synthetic field v.1.0, Val field: Synthetic field v.1.0, Test field: Synthetic field v.1.0 - Train scenario: Synthetic Martorano v.1.0, Val scenario: Synthetic Bologna v.1.0, Test scenario: Real Fondo PROGETTO_1 2020 - Imputation: bfill+ffill"
+  batch_size: 1
+  seed: 42
+

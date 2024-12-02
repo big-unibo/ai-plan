@@ -1,0 +1,49 @@
+{
+    "prototype": {
+        "choice": [
+            "regression"
+        ]
+    },
+    "regression": {
+        "choice": [
+            {
+                "type": "RandomForestRegressor",
+                "n_estimators": {
+                    "choice": [
+                        -1
+                    ]
+                },
+                "criterion": {
+                    "choice": [
+                        -1
+                    ]
+                },
+                "max_features": {
+                    "choice": [
+                        -1
+                    ]
+                },
+                "bootstrap": {
+                    "choice": [
+                        -1
+                    ]
+                },
+                "oob_score": {
+                    "choice": [
+                        -1
+                    ]
+                },
+                "n_jobs": {
+                    "choice": [
+                        -1
+                    ]
+                },
+                "warm_start": {
+                    "choice": [
+                        -1
+                    ]
+                }
+            }
+        ]
+    }
+}

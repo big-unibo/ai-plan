@@ -1,0 +1,77 @@
+{
+    "prototype": {
+        "choice": [
+            "normalization_regression"
+        ]
+    },
+    "normalization": {
+        "choice": [
+            {
+                "type": "StandardScaler"
+            }
+        ]
+    },
+    "regression": {
+        "choice": [
+            {
+                "type": "FeedForward",
+                "num_epochs": {
+                    "randint": [
+                        8,
+                        11
+                    ]
+                },
+                "batch_size": {
+                    "randint": [
+                        6,
+                        10
+                    ]
+                },
+                "num_hidden_layers": {
+                    "randint": [
+                        1,
+                        6
+                    ]
+                },
+                "num_neurons": {
+                    "randint": [
+                        4,
+                        9
+                    ]
+                },
+                "encoder": {
+                    "choice": [
+                        true,
+                        false
+                    ]
+                },
+                "dropout": {
+                    "quniform": [
+                        0.0,
+                        0.9,
+                        0.15
+                    ]
+                },
+                "activation_function": {
+                    "choice": [
+                        "sigmoid",
+                        "tanh",
+                        "ReLU"
+                    ]
+                },
+                "last_activation_function": {
+                    "choice": [
+                        "linear"
+                    ]
+                },
+                "optimizer": {
+                    "choice": [
+                        "SGD",
+                        "Adadelta",
+                        "Adam"
+                    ]
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,238 @@
+-- INSERT INTO synthetic_scenario_composed_scenario
+-- SELECT * FROM dblink('dbname=smart_irrigation_old user=root',
+-- 		   'select * 
+-- 			from synthetic_scenario_composed_scenario') 
+-- 		   AS my_connection(composed_scenario_name text,
+-- 			scenario_name text)
+-- WHERE composed_scenario_name in (select name from synthetic_composed_scenario);
+			
+-- INSERT INTO synthetic_scenario
+-- SELECT * FROM dblink('dbname=smart_irrigation_old user=root',
+-- 		   'select * 
+-- 			from synthetic_scenario') 
+-- 		   AS my_connection(
+-- 			   name text,
+-- 			   description text,
+-- 			   scenario_arpae_name text,
+-- 			   scenario_water_name text);
+
+-- delete from synthetic_scenario_arpae
+-- where name not in (select scenario_arpae_name from synthetic_scenario)
+
+-- INSERT INTO synthetic_field_scenario
+-- SELECT * FROM dblink('dbname=smart_irrigation_old user=root',
+-- 		   'select * 
+-- 			from synthetic_field_scenario') 
+-- 		   AS my_connection(
+-- 			   field_name text,
+-- 			   scenario_name text)
+-- WHERE field_name in (select name from synthetic_field)
+-- AND scenario_name in (select name from synthetic_scenario);
+
+-- INSERT INTO synthetic_humidity_bins
+-- SELECT * FROM dblink('dbname=smart_irrigation_old user=root',
+-- 		   'select * 
+-- 			from synthetic_humidity_bins') 
+-- 		   AS my_connection(
+-- 			   name text,
+-- 			   min integer,
+-- 			   max integer);
+			   
+-- ALTER TABLE synthetic_data_humidity_bins
+-- ADD CONSTRAINT fk_synthetic_data_humidity_bins_synthetic_humidity_bins FOREIGN KEY (humidity_bin)
+--         REFERENCES public.synthetic_humidity_bins (humidity_bin) MATCH SIMPLE
+--         ON UPDATE CASCADE
+--         ON DELETE CASCADE
+--         DEFERRABLE;
+		
+			   
+-- ALTER TABLE synthetic_prediction_humidity_bins
+-- ADD CONSTRAINT fk_synthetic_prediction_humidity_bins_synthetic_humidity_bins FOREIGN KEY (humidity_bin)
+--         REFERENCES public.synthetic_humidity_bins (humidity_bin) MATCH SIMPLE
+--         ON UPDATE CASCADE
+--         ON DELETE CASCADE
+--         DEFERRABLE;
+
+-- INSERT INTO synthetic_sensor
+-- SELECT * FROM dblink('dbname=smart_irrigation_old user=root',
+-- 		   'select * 
+-- 			from synthetic_sensor') 
+-- 		   AS my_connection(
+-- 			   name text,
+-- 				description text,
+-- 				x double precision,
+-- 				z double precision);
+
+-- INSERT INTO synthetic_value_type
+-- SELECT * FROM dblink('dbname=smart_irrigation_old user=root',
+-- 		   'select * 
+-- 			from synthetic_value_type') 
+-- 		   AS my_connection(
+-- 			   name text,
+-- 				description text,
+-- 				unit text);
+
+-- INSERT INTO synthetic_data
+-- SELECT * FROM dblink('dbname=smart_irrigation_old user=root',
+-- 		   'select * 
+-- 			from synthetic_data
+-- 			where field_name = ''Synthetic field v.1.0''
+-- 		    and scenario_name in (''Real Bologna 2016 v.1.8'',
+-- 				''Real Bologna 2017 v.1.8'',
+-- 				''Real Bologna 2018 v.1.8'',
+-- 				''Real Bologna 2019 v.1.8'',
+-- 				''Real Fondo PROGETTO_1 v.1.1'',
+-- 				''Real Fondo PROGETTO_1 v.1.2'',
+-- 				''Real Fondo PROGETTO_2 v.1.2'',
+-- 				''Real Martorano 2017 v.1.8'',
+-- 				''Real Martorano 2018 v.1.8'',
+-- 				''Real Martorano 2019 v.1.8'',
+-- 				''Real Martorano 2020 v.1.8'')') 
+-- 		   AS my_connection(
+-- 		    field_name text,
+-- 			scenario_name text,
+-- 			unix_timestamp bigint,
+-- 			value_type_name text,
+-- 			x double precision,
+-- 			y double precision,
+-- 			z double precision,
+-- 			value double precision);
+
+-- INSERT INTO synthetic_data
+-- SELECT * FROM dblink('dbname=smart_irrigation_old user=root password=watering-forecasting',
+-- 		   'select field_name,
+-- 			scenario_name,
+-- 			unix_timestamp,
+-- 			value_type_name,
+-- 			ROUND(x::numeric, 2),
+-- 			ROUND(y::numeric, 2),
+-- 			z,
+-- 			value 
+-- 			from synthetic_data
+-- 			where field_name = ''Synthetic field v.1.0''
+-- 		    and scenario_name in (''Real Bologna 2016 v.1.8'',
+-- 				''Real Bologna 2017 v.1.8'',
+-- 				''Real Bologna 2018 v.1.8'',
+-- 				''Real Bologna 2019 v.1.8'',
+-- 				''Real Fondo PROGETTO_1 v.1.1'',
+-- 				''Real Fondo PROGETTO_1 v.1.2'',
+-- 				''Real Fondo PROGETTO_2 v.1.2'',
+-- 				''Real Martorano 2017 v.1.8'',
+-- 				''Real Martorano 2018 v.1.8'',
+-- 				''Real Martorano 2019 v.1.8'',
+-- 				''Real Martorano 2020 v.1.8'')') 
+-- 		   AS my_connection(
+-- 		    field_name text,
+-- 			scenario_name text,
+-- 			unix_timestamp bigint,
+-- 			value_type_name text,
+-- 			x double precision,
+-- 			y double precision,
+-- 			z double precision,
+-- 			value double precision);
+			
+-- INSERT INTO synthetic_data_humidity_bins
+-- SELECT * FROM dblink('dbname=smart_irrigation_old user=root password=watering-forecasting',
+-- 		   'select * 
+-- 			from synthetic_data_humidity_bins
+-- 			where field_name = ''Synthetic field v.1.0''
+-- 		    and scenario_name in (''Real Bologna 2016 v.1.8'',
+-- 				''Real Bologna 2017 v.1.8'',
+-- 				''Real Bologna 2018 v.1.8'',
+-- 				''Real Bologna 2019 v.1.8'',
+-- 				''Real Fondo PROGETTO_1 v.1.1'',
+-- 				''Real Fondo PROGETTO_1 v.1.2'',
+-- 				''Real Fondo PROGETTO_2 v.1.2'',
+-- 				''Real Martorano 2017 v.1.8'',
+-- 				''Real Martorano 2018 v.1.8'',
+-- 				''Real Martorano 2019 v.1.8'',
+-- 				''Real Martorano 2020 v.1.8'')') 
+-- 		   AS my_connection(
+-- 		    field_name text,
+-- 			scenario_name text,
+-- 			unix_timestamp bigint,
+-- 			humidity_bin text,
+-- 			count bigint);
+
+-- INSERT INTO synthetic_scenario_arpae_data
+-- SELECT * FROM dblink('dbname=smart_irrigation_old user=root password=watering-forecasting',
+-- 		   'select *
+-- 			from synthetic_scenario_arpae_data
+-- 			where scenario_arpae_name in (''Real Bologna 2016 v.1.1'',
+-- 			''Real Bologna 2017 v.1.1'',
+-- 			''Real Bologna 2018 v.1.1'',
+-- 			''Real Bologna 2019 v.1.1'',
+-- 			''Real Fondo PROGETTO_1 v.1.1'',
+-- 			''Real Fondo PROGETTO_2 v.1.1'',
+-- 			''Real Martorano 2017 v.1.1'',
+-- 			''Real Martorano 2018 v.1.1'',
+-- 			''Real Martorano 2019 v.1.1'',
+-- 			''Real Martorano 2020 v.1.1'')') 
+-- 		   AS my_connection(
+-- 			scenario_arpae_name text,
+-- 			unix_timestamp bigint,
+-- 			value_type_name text,
+-- 			value double precision);
+
+-- INSERT INTO synthetic_scenario_water_data
+-- SELECT * FROM dblink('dbname=smart_irrigation_old user=root password=watering-forecasting',
+-- 		   'select *
+-- 			from synthetic_scenario_water_data
+-- 			where scenario_water_name in (''Real Bologna 2016 v.1.8'',
+-- 			''Real Bologna 2017 v.1.8'',
+-- 			''Real Bologna 2018 v.1.8'',
+-- 			''Real Bologna 2019 v.1.8'',
+-- 			''Real Fondo PROGETTO_1 v.1.1'',
+-- 			''Real Fondo PROGETTO_1 v.1.2'',
+-- 			''Real Fondo PROGETTO_2 v.1.1'',
+-- 			''Real Fondo PROGETTO_2 v.1.2'',
+-- 			''Real Martorano 2017 v.1.8'',
+-- 			''Real Martorano 2018 v.1.8'',
+-- 			''Real Martorano 2019 v.1.8'',
+-- 			''Real Martorano 2020 v.1.8'')') 
+-- 		   AS my_connection(
+-- 			scenario_water_name text,
+-- 			unix_timestamp bigint,
+-- 			value_type_name text,
+-- 			value double precision);
+
+/************
+IMPORT REAL DATA
+************/
+
+-- INSERT INTO synthetic_data
+-- 	SELECT field_name,
+-- 		scenario_name,
+-- 		unix_timestamp,
+-- 		value_type_name,
+-- 		x,
+-- 		y,
+-- 		z,
+-- 		last(raw_value) as value
+-- 	FROM dblink('hostaddr=137.204.72.88 port=5432 dbname=abds_irrigation user=jgiovanelli password=j610van3ll1',
+-- 			   'select ''Real Fondo PROGETTO_2''::text as field_name,
+-- 						''Real Fondo PROGETTO_2 v.1.2''::text as scenario_name, 
+-- 						timestamp as raw_unix_timestamp,
+-- 						((timestamp/3600)*3600)::bigint as unix_timestamp,
+-- 						''GROUND_WATER_POTENTIAL''::text as value_type_name,
+-- 						 xx::double precision as x, 
+-- 						 0::double precision as y,
+-- 						 yy::double precision as z, 
+-- 						 value::double precision as raw_value
+-- 				from view_data_original
+-- 				where "fieldName" = ''Fondo PROGETTO_2''
+-- 				and "detectedValueTypeId" = ''GRND_WATER_G''
+-- 				and ((timestamp/3600)*3600)::bigint <= 1602025200
+-- 				and ((timestamp/3600)*3600)::bigint >= 1591480800
+-- 				order by unix_timestamp') 
+-- 			   AS my_connection(
+-- 				field_name text,
+-- 				scenario_name text,
+-- 				raw_unix_timestamp bigint,
+-- 				unix_timestamp bigint,
+-- 				value_type_name text,
+-- 				x double precision,
+-- 				y double precision,
+-- 				z double precision,
+-- 				raw_value double precision)
+-- 	GROUP BY field_name, scenario_name, unix_timestamp, value_type_name, x, y, z;
