@@ -34,4 +34,4 @@ There are two options:
 
 # Database Dump
 
-The whole end-to-end process is extremely time- and resource-consuming. Hence, we provide the results obtained during our experiments via a [Zenodo repository (still uploading)]()
+The whole end-to-end process is extremely time- and resource-consuming. Hence, we provide the results obtained during our experiments via a [Zenodo repository](https://zenodo.org/records/14277535)
